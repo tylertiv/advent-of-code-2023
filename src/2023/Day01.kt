@@ -1,21 +1,7 @@
-import kotlin.reflect.typeOf
-
 fun main() {
     fun part1(input: List<String>): Int = input.sumOf { line ->
         "${line.first { it.isDigit() }}${line.last { it.isDigit() }}".toInt()
     }
-
-    /* First pass — Bug in here somewhere...
-    (0..9).map { digit ->
-        line.indexOf(digit.toString()[0])
-    }.filter {
-        it >= 0
-    }.let {
-        listOf(it.min(), it.max())
-            .map { line[it].toString() }
-            .let { "${it[0]}${it[1]}" }
-    }.toInt()
-     */
 
     fun part2(input: List<String>): Int {
         /*
@@ -43,7 +29,7 @@ fun main() {
         })
     }
 
-    val input = readInput("input/Day01")
+    val input = readInput("src/2023/input/Day01")
     println("Part 1 output — ${part1(input)}")
     println("Part 2 output — ${part2(input)}")
 }
