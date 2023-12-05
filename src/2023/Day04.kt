@@ -28,12 +28,13 @@ fun main() {
             parseScratcher(it)
         }
         return scratchers.mapIndexed { i, current ->
-                if (current.countWins() > 0) for (j in 1..current.countWins()) {
+            if (current.countWins() > 0)
+                for (j in 1..current.countWins()) {
                     val count = scratchers.getOrNull(i + j)?.copies ?: 0
                     scratchers.getOrNull(i + j)?.copies = count + current.copies
                 }
-                current
-            }.sumOf { it.copies }
+            current
+        }.sumOf { it.copies }
     }
 
     val input = readInput("src/2023/input/Day04")
